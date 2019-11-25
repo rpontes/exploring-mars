@@ -5,13 +5,11 @@ module Moves
 
   class << self
     def left(direction)
-      direction_index = CARDINAL_DIRECTIONS.index(direction) - 1
-      turn_to(direction_index)
+      turn_to(CARDINAL_DIRECTIONS.index(direction) - 1)
     end
 
     def right(direction)
-      direction_index = CARDINAL_DIRECTIONS.index(direction) + 1
-      turn_to(direction_index)
+      turn_to(CARDINAL_DIRECTIONS.index(direction) + 1)
     end
 
     def forward(position, direction)

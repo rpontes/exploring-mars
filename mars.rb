@@ -1,4 +1,4 @@
-# Class to represent the Planet Mars setting the values for limit the grid to land Space Probes.
+# Class to represent the Planet Mars setting the values for limit the grid to explore Space Probes.
 #
 # ==== Attributes
 #
