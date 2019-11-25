@@ -1,3 +1,4 @@
+require_relative './moves'
 # Class to represent the Space Probe, set the initial position and direction.
 #
 # ==== Attributes
@@ -18,13 +19,16 @@ class Probe
   end
 
   def turn_left
+    @current_direction = Moves.left(current_direction)
   end
 
   def turn_right
+    @current_direction = Moves.right(current_direction)
   end
 
   def move_forward
+    @current_position = Moves.forward(current_position, current_direction)
   end
 
-  attr_reader :current_position, :current_direction
+  attr_accessor :current_position, :current_direction
 end
