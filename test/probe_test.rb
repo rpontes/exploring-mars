@@ -19,7 +19,9 @@ class ProbeTest < Minitest::Test
   end
 
   def test_move_forward
-    assert_equal ({ x: 1, y: 3 }), Probe.new(1, 2, 'N').move_forward
+    assert_equal ({ x: 1, y: 3 }), Probe.new(1, 2, 'N').move_forward(
+      minor: { x: 0, y: 0 }, major: { x: 5, y: 5 }
+    )
   end
 
   def test_raises_argument_error_position

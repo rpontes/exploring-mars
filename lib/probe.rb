@@ -34,8 +34,8 @@ class Probe
     @current_direction = Moves.right(current_direction)
   end
 
-  def move_forward
-    @current_position = Moves.forward(current_position, current_direction)
+  def move_forward(limits)
+    @current_position = Moves.forward(current_position, current_direction, limits)
   end
 
   attr_accessor :current_position, :current_direction

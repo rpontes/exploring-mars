@@ -12,8 +12,6 @@
 # Explore.new(mars, probe, 'LMLMLMLMM')
 #
 class Explore
-  INSTRUCTIONS = { 'L' => 'turn_left', 'R' => 'turn_right', 'M' => 'move_forward' }
-
   def initialize(mars, probe, instructions)
     @mars = mars
     @probe = probe
@@ -21,25 +19,23 @@ class Explore
   end
 
   def move
-    instructions.chars.each { |instruction| probe.send(INSTRUCTIONS.fetch(instruction)) }
-  rescue KeyError
-    raise ArgumentError, 'An unrecognized instruction was received.'
+    instructions.chars.each do |instruction|
+      case instruction
+      when 'L'
+        probe.turn_left
+      when 'R'
+        probe.turn_right
+      when 'M'
+        probe.move_forward(mars.limits)
+      else
+        raise ArgumentError, 'An unrecognized instruction was received.'
+      end
+    end
   end
 
   def final_coordinate
-    return 'Houston, we have a problem. We lost the Space Probe' if exceeded_limit?
-
     "#{probe.current_position.values.join(' ')} #{probe.current_direction}"
   end
 
   attr_reader :mars, :probe, :instructions
-
-  private
-
-  def exceeded_limit?
-    minor, major = *mars.limits.values
-
-    !(probe.current_position[:x].between?(minor[:x], major[:x])) ||
-    !(probe.current_position[:y].between?(minor[:y], major[:y]))
-  end
 end
