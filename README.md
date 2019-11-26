@@ -1,19 +1,19 @@
 # Exploring Mars
-On this project we will land Spaces Probes on the surface of mars. To control we need send coordinates and commands to each probe to land safely.
+On this project we will land Spaces Probes on the surface of Mars. In order to ensure a sefely landing and surface operation, a Probe needs to be loaded with its touchdown coordinates and an exploration program using a specific instruction set.
 
-## The Commands
+## Instruction Set
 
-You need send the commands as follows:
+A limited instruction set capable of describe the exploration area, probe positioning and bearing, and movement commands is available:
 
-**The limit point to the northwest**
+**Exploration Area**
 ```ruby
 # x axis | y axis
 5 5
 ```
 
-**Space Probe start position**
+**Probe Position and bearing**
 ```ruby
-# x axis | y axis | cardinal point direction
+# x axis | y axis | direction
 1 2 N
 ```
 
@@ -22,24 +22,31 @@ You need send the commands as follows:
 # L = left | R = right | M = move
 LMLMLMLMM
 ```
-It's import know that when you send the `L` or `R` command the Probe rotates 90 degrees changin the cardinal point direction not performing forward motion, for this it is necessary to send the command `M` for the probe to change the quadrant.
+Notice when issuing an orientation command (`L` and `R`), the probe will only rotates 90 degrees and no movement is applied. In order to actually move the probe, a `M` command must be issued.
 
+## Space Probe Arrival
 
-## Space Probe Response
-
-When the Space Probe lands it sends a signal informing the arrival coordinates:
+When the Space Probe lands, it sends a signal informing the arrival coordinates:
 
 ```ruby
-# X axis | Y axis | cardinal point direction
+# X axis | Y axis | direction
 1 3 N
 ```
 
-## Execution
+If the Space Probe reaches on the limit of area, a message will be sent:
+
+```
+Houston, we have a problem. We reached our limit.
+```
+
+
+## Running
+To run you need the Ruby installed, you can follow the instructions: [Installing Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 
 ```
 git clone git@github.com:rpontes/exploring-mars.git
 
 cd exploring-mars
 
-ruby execute.rb
+ruby bin/exploring_mars.rb
 ```
