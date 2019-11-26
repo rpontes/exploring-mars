@@ -36,4 +36,10 @@ When the Space Probe lands it sends a signal informing the arrival coordinates:
 
 ## Execution
 
-TODO
+```
+git clone git@github.com:rpontes/exploring-mars.git
+
+cd exploring-mars
+
+ruby execute.rb
+```
