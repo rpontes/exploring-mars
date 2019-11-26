@@ -14,6 +14,14 @@ require_relative './moves'
 #
 class Probe
   def initialize(initial_x_axis, initial_y_axis, initial_cardinal_direction)
+    unless (initial_x_axis.is_a? Integer) && (initial_y_axis.is_a? Integer)
+      raise ArgumentError, 'Position must be an integer'
+    end
+
+    unless Moves::CARDINAL_DIRECTIONS.include?(initial_cardinal_direction)
+      raise ArgumentError, 'Cardinal direction must be N, S, W or E'
+    end
+
     @current_position = { x: initial_x_axis, y: initial_y_axis }
     @current_direction = initial_cardinal_direction
   end

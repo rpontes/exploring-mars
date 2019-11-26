@@ -21,4 +21,16 @@ class ProbeTest < Minitest::Test
   def test_move_forward
     assert_equal ({ x: 1, y: 3 }), Probe.new(1, 2, 'N').move_forward
   end
+
+  def test_raises_argument_error_position
+    assert_raises ArgumentError do
+      Probe.new(3, 'a', 'N')
+    end
+  end
+
+  def test_raises_argument_error_direction
+    assert_raises ArgumentError do
+      Probe.new(1, 5, 'X')
+    end
+  end
 end
