@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative '../moves'
+require_relative '../lib/moves'
 
 class MovesTest < Minitest::Test
   def test_turn_left

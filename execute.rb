@@ -1,6 +1,6 @@
-require_relative './mars'
-require_relative './probe'
-require_relative './explore'
+require_relative './lib/mars'
+require_relative './lib/probe'
+require_relative './lib/explore'
 
 mars = Mars.new(5, 5)
 

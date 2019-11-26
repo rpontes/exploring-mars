@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative '../mars'
+require_relative '../lib/mars'
 
 class MarsTest < Minitest::Test
   def test_limits_points

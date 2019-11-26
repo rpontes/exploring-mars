@@ -1,7 +1,7 @@
 require 'minitest/autorun'
-require_relative '../explore'
-require_relative '../mars'
-require_relative '../probe'
+require_relative '../lib/explore'
+require_relative '../lib/mars'
+require_relative '../lib/probe'
 
 class ExploreTest < Minitest::Test
   def test_move_probe
