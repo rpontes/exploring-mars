@@ -12,12 +12,8 @@
 #
 class Mars
   def initialize(limit_x_axis, limit_y_axis)
-    unless (limit_x_axis.is_a? Integer) && (limit_y_axis.is_a? Integer)
-      raise ArgumentError, 'Limit must be an integer'
-    end
-
-    @limit_x_axis = limit_x_axis
-    @limit_y_axis = limit_y_axis
+    @limit_x_axis = Integer(limit_x_axis)
+    @limit_y_axis = Integer(limit_y_axis)
   end
 
   # Return the minor and the major limits of the grid. We assume that always the minor limit will be
